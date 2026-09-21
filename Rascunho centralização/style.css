@@ -403,6 +403,129 @@ tbody tr:hover {
     background-color: #fafafa;
 }
 
+/* FILTRO DE SERVICOS */
+
+.th-servicos {
+    vertical-align: top;
+}
+
+
+.cabecalho-servicos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.cabecalho-servicos span {
+    color: #555;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* AÇÕES DA TABELA */
+
+.acoes-tabela {
+    display: flex;
+    align-items: flex-end;
+
+    gap: 12px;
+}
+
+
+/* FILTRO DE SERVIÇO */
+
+.filtro-area {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    min-width: 180px;
+}
+
+
+.filtro-area label {
+    color: #555;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.filtro-area select {
+    width: 180px;
+    height: 38px;
+
+    padding: 0 12px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    outline: none;
+
+    color: #444;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.filtro-area select:hover {
+    border-color: #ccc;
+}
+
+
+.filtro-area select:focus {
+    border-color: #e3262e;
+
+    box-shadow:
+        0 0 0 2px rgba(227, 38, 46, 0.08);
+}
+
+
+/* BOTÃO ADICIONAR */
+
+.adicionar-acesso {
+    height: 38px;
+
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #e3262e;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.adicionar-acesso:hover {
+    background-color: #c91f26;
+
+    transform: translateY(-1px);
+}
+
+
 
 /* BOTÃO EDITAR */
 
@@ -612,10 +735,10 @@ tbody tr:hover {
 
     padding: 0 18px;
 
-    background-color: #e3262e;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #555;
 
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 7px;
 
     font-size: 14px;
@@ -625,9 +748,25 @@ tbody tr:hover {
 }
 
 .btn-cadastrar:hover {
-    background-color: #c91f26;
+    background-color: #f5f5f5;
 }
 
+/* BOTÃO DELETAR */
+
+.btn-deletar {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-deletar:hover {
+    background-color: #b91c1c;
+}
 
 /* FOOTER */
 
