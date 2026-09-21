@@ -1,10 +1,16 @@
-/* MENU HAMBURGUER */
+/* MENU HAMBÚRGUER */
 
-const botaoMenu = document.getElementById("menuHamburguer");
-const menu = document.getElementById("menu");
+const botaoMenu =
+    document.getElementById("menuHamburguer");
+
+const menu =
+    document.getElementById("menu");
+
 
 botaoMenu.addEventListener("click", () => {
+
     menu.classList.toggle("ativo");
+
 });
 
 
@@ -26,7 +32,7 @@ const dataCriacao =
     document.getElementById("dataCriacao");
 
 
-/* FORMULARIO */
+/* FORMULÁRIO DE CADASTRO */
 
 const formulario =
     document.getElementById("formCadastro");
@@ -35,22 +41,35 @@ const tabelaAcessos =
     document.getElementById("tabelaAcessos");
 
 
-/* ABRIR MODAL */
+/* FILTRO POR ÁREA OU SETOR */
+
+const filtroArea =
+    document.getElementById("filtroArea");
+
+
+/* LINHA ATUALMENTE SELECIONADA PARA EDIÇÃO */
+
+let linhaEditando = null;
+
+
+/* ABRIR MODAL DE CADASTRO */
 
 botaoAdicionar.addEventListener("click", () => {
 
     const data = new Date();
 
     const dataFormatada =
-        data.toLocaleDateString("pt-BR");
+        data.toLocaleDateString("pt BR");
 
-    dataCriacao.value = dataFormatada;
+    dataCriacao.value =
+        dataFormatada;
 
     modal.classList.add("ativo");
+
 });
 
 
-/* FECHAR MODAL */
+/* FECHAR MODAL DE CADASTRO */
 
 botaoFechar.addEventListener("click", () => {
 
@@ -68,15 +87,17 @@ botaoCancelar.addEventListener("click", () => {
 });
 
 
-/* CADASTRAR ACESSO */
+/* CADASTRAR NOVO ACESSO */
 
 formulario.addEventListener("submit", (evento) => {
 
     evento.preventDefault();
 
 
+    /* CAPTURAR DADOS DO FORMULÁRIO */
+
     const servico =
-        document.getElementById("servico").value;
+        document.getElementById("servico").value.trim();
 
     const email =
         document.getElementById("email").value;
@@ -91,7 +112,7 @@ formulario.addEventListener("submit", (evento) => {
         document.getElementById("centralizado").value;
 
     const area =
-        document.getElementById("area").value;
+        document.getElementById("area").value.trim();
 
     const data =
         dataCriacao.value;
@@ -104,21 +125,37 @@ formulario.addEventListener("submit", (evento) => {
 
 
     novaLinha.innerHTML = `
-        <td>${servico}</td>
-
-        <td>${email}</td>
-
-        <td>${senha}</td>
-
-        <td>${status}</td>
-
-        <td>${centralizado}</td>
-
-        <td>${area}</td>
-
-        <td>${data}</td>
 
         <td>
+            ${servico}
+        </td>
+
+        <td>
+            ${email}
+        </td>
+
+        <td>
+            ${senha}
+        </td>
+
+        <td>
+            ${status}
+        </td>
+
+        <td>
+            ${centralizado}
+        </td>
+
+        <td>
+            ${area}
+        </td>
+
+        <td>
+            ${data}
+        </td>
+
+        <td>
+
             <button
                 class="btn-editar"
                 type="button">
@@ -128,26 +165,39 @@ formulario.addEventListener("submit", (evento) => {
                     alt="Editar">
 
             </button>
+
         </td>
+
     `;
 
 
-    tabelaAcessos.appendChild(novaLinha);
+    /* ADICIONAR ACESSO NA TABELA */
+
+    tabelaAcessos.appendChild(
+        novaLinha
+    );
 
 
-    /* FINALIZAR CADASTRO */
+    /* ATUALIZAR FILTRO */
+
+    atualizarFiltroAreas();
+
+    aplicarFiltroArea();
+
+
+    /* LIMPAR FORMULÁRIO */
 
     formulario.reset();
 
     modal.classList.remove("ativo");
 
 
-    /* MOSTRAR TOAST */
+    /* MOSTRAR MENSAGEM DE SUCESSO */
 
     mostrarToast();
 
 
-    /* CRIAR NOTIFICACAO */
+    /* CRIAR NOTIFICAÇÃO */
 
     criarNotificacao(
         "Novo cadastro",
@@ -157,7 +207,7 @@ formulario.addEventListener("submit", (evento) => {
 });
 
 
-/* MODAL DE EDICAO */
+/* MODAL DE EDIÇÃO */
 
 const modalEdicao =
     document.getElementById("modalEdicao");
@@ -171,11 +221,11 @@ const cancelarEdicao =
 const formularioEdicao =
     document.getElementById("formEdicao");
 
+const botaoDeletar =
+    document.getElementById("deletarAcesso");
 
-let linhaEditando = null;
 
-
-/* ABRIR MODAL DE EDICAO */
+/* ABRIR MODAL DE EDIÇÃO */
 
 tabelaAcessos.addEventListener("click", (evento) => {
 
@@ -184,101 +234,448 @@ tabelaAcessos.addEventListener("click", (evento) => {
 
 
     if (!botaoEditar) {
+
         return;
+
     }
 
+
+    /* GUARDAR LINHA SELECIONADA */
 
     linhaEditando =
         botaoEditar.closest("tr");
 
 
-    document.getElementById("editarServico").value =
-        linhaEditando.cells[0].textContent;
+    /* PREENCHER DADOS DA EDIÇÃO */
 
+    document.getElementById("editarServico").value =
+        linhaEditando.cells[0].textContent.trim();
 
     document.getElementById("editarEmail").value =
-        linhaEditando.cells[1].textContent;
-
+        linhaEditando.cells[1].textContent.trim();
 
     document.getElementById("editarSenha").value =
-        linhaEditando.cells[2].textContent;
-
+        linhaEditando.cells[2].textContent.trim();
 
     document.getElementById("editarStatus").value =
-        linhaEditando.cells[3].textContent;
-
+        linhaEditando.cells[3].textContent.trim();
 
     document.getElementById("editarCentralizado").value =
-        linhaEditando.cells[4].textContent;
-
+        linhaEditando.cells[4].textContent.trim();
 
     document.getElementById("editarArea").value =
-        linhaEditando.cells[5].textContent;
-
+        linhaEditando.cells[5].textContent.trim();
 
     document.getElementById("editarDataCriacao").value =
-        linhaEditando.cells[6].textContent;
+        linhaEditando.cells[6].textContent.trim();
 
+
+    /* ABRIR MODAL */
 
     modalEdicao.classList.add("ativo");
 
 });
 
 
-/* SALVAR ALTERACOES */
+/* SALVAR ALTERAÇÕES */
 
 formularioEdicao.addEventListener("submit", (evento) => {
 
     evento.preventDefault();
 
 
-    linhaEditando.cells[0].textContent =
-        document.getElementById("editarServico").value;
+    if (!linhaEditando) {
 
+        return;
+
+    }
+
+
+    /* ATUALIZAR SERVIÇO */
+
+    linhaEditando.cells[0].textContent =
+        document
+            .getElementById("editarServico")
+            .value
+            .trim();
+
+
+    /* ATUALIZAR EMAIL */
 
     linhaEditando.cells[1].textContent =
         document.getElementById("editarEmail").value;
 
 
+    /* ATUALIZAR SENHA */
+
     linhaEditando.cells[2].textContent =
         document.getElementById("editarSenha").value;
 
+
+    /* ATUALIZAR STATUS */
 
     linhaEditando.cells[3].textContent =
         document.getElementById("editarStatus").value;
 
 
+    /* ATUALIZAR CENTRALIZADO */
+
     linhaEditando.cells[4].textContent =
         document.getElementById("editarCentralizado").value;
 
 
-    linhaEditando.cells[5].textContent =
-        document.getElementById("editarArea").value;
+    /* ATUALIZAR ÁREA */
 
+    linhaEditando.cells[5].textContent =
+        document
+            .getElementById("editarArea")
+            .value
+            .trim();
+
+
+    /* ATUALIZAR DATA */
 
     linhaEditando.cells[6].textContent =
         document.getElementById("editarDataCriacao").value;
 
 
+    /* ATUALIZAR FILTRO */
+
+    atualizarFiltroAreas();
+
+    aplicarFiltroArea();
+
+
+    /* FECHAR MODAL */
+
     modalEdicao.classList.remove("ativo");
+
+
+    /* LIMPAR LINHA EDITADA */
+
+    linhaEditando = null;
+
+
+    /* CRIAR NOTIFICAÇÃO */
+
+    criarNotificacao(
+        "Cadastro atualizado",
+        "O acesso foi atualizado com sucesso."
+    );
 
 });
 
 
-/* FECHAR MODAL DE EDICAO */
+/* DELETAR ACESSO */
+
+if (botaoDeletar) {
+
+    botaoDeletar.addEventListener("click", () => {
+
+        if (!linhaEditando) {
+
+            alert("Nenhum acesso selecionado.");
+
+            return;
+
+        }
+
+
+        /* PEGAR NOME DO SERVIÇO */
+
+        const servico =
+            linhaEditando.cells[0]
+                .textContent
+                .trim();
+
+
+        /* CONFIRMAR EXCLUSÃO */
+
+        const confirmar =
+            confirm(
+                `Tem certeza que deseja deletar o acesso de "${servico}"?`
+            );
+
+
+        if (!confirmar) {
+
+            return;
+
+        }
+
+
+        /* REMOVER LINHA */
+
+        linhaEditando.remove();
+
+
+        /* ATUALIZAR FILTRO */
+
+        atualizarFiltroAreas();
+
+        aplicarFiltroArea();
+
+
+        /* FECHAR MODAL */
+
+        modalEdicao.classList.remove("ativo");
+
+
+        /* LIMPAR LINHA EDITADA */
+
+        linhaEditando = null;
+
+
+        /* CRIAR NOTIFICAÇÃO */
+
+        criarNotificacao(
+            "Cadastro deletado",
+            `O acesso de ${servico} foi deletado com sucesso.`
+        );
+
+    });
+
+}
+
+
+/* FECHAR MODAL DE EDIÇÃO */
 
 fecharModalEdicao.addEventListener("click", () => {
 
     modalEdicao.classList.remove("ativo");
 
+    linhaEditando = null;
+
 });
 
+
+/* CANCELAR EDIÇÃO */
 
 cancelarEdicao.addEventListener("click", () => {
 
     modalEdicao.classList.remove("ativo");
 
+    linhaEditando = null;
+
 });
+
+
+/* ATUALIZAR FILTRO DE ÁREAS */
+
+function atualizarFiltroAreas() {
+
+    if (!filtroArea) {
+
+        return;
+
+    }
+
+
+    /* GUARDAR ÁREA SELECIONADA */
+
+    const valorAtual =
+        filtroArea.value;
+
+
+    /* CRIAR LISTA DE ÁREAS */
+
+    const areas = [];
+
+
+    /* PERCORRER LINHAS DA TABELA */
+
+    tabelaAcessos
+        .querySelectorAll("tr")
+        .forEach((linha) => {
+
+            if (!linha.cells[5]) {
+
+                return;
+
+            }
+
+
+            /* PEGAR ÁREA DA LINHA */
+
+            const area =
+                linha.cells[5]
+                    .textContent
+                    .trim();
+
+
+            /* ADICIONAR ÁREA SEM REPETIR */
+
+            if (
+                area &&
+                !areas.includes(area)
+            ) {
+
+                areas.push(area);
+
+            }
+
+        });
+
+
+    /* ORDENAR ÁREAS */
+
+    areas.sort((a, b) => {
+
+        return a.localeCompare(
+            b,
+            "pt BR",
+            {
+                sensitivity: "base"
+            }
+        );
+
+    });
+
+
+    /* LIMPAR FILTRO */
+
+    filtroArea.innerHTML = "";
+
+
+    /* CRIAR OPÇÃO PARA TODAS AS ÁREAS */
+
+    const opcaoTodos =
+        document.createElement("option");
+
+    opcaoTodos.value =
+        "todos";
+
+    opcaoTodos.textContent =
+        "Todas as áreas";
+
+    filtroArea.appendChild(
+        opcaoTodos
+    );
+
+
+    /* ADICIONAR ÁREAS AO FILTRO */
+
+    areas.forEach((area) => {
+
+        const opcao =
+            document.createElement("option");
+
+        opcao.value =
+            area;
+
+        opcao.textContent =
+            area;
+
+        filtroArea.appendChild(
+            opcao
+        );
+
+    });
+
+
+    /* MANTER ÁREA SELECIONADA */
+
+    if (
+        areas.includes(valorAtual)
+    ) {
+
+        filtroArea.value =
+            valorAtual;
+
+    } else {
+
+        filtroArea.value =
+            "todos";
+
+    }
+
+}
+
+
+/* APLICAR FILTRO DE ÁREA */
+
+function aplicarFiltroArea() {
+
+    if (!filtroArea) {
+
+        return;
+
+    }
+
+
+    /* PEGAR ÁREA SELECIONADA */
+
+    const areaSelecionada =
+        filtroArea.value;
+
+
+    /* PERCORRER LINHAS DA TABELA */
+
+    tabelaAcessos
+        .querySelectorAll("tr")
+        .forEach((linha) => {
+
+            if (!linha.cells[5]) {
+
+                return;
+
+            }
+
+
+            /* PEGAR ÁREA DA LINHA */
+
+            const area =
+                linha.cells[5]
+                    .textContent
+                    .trim();
+
+
+            /* MOSTRAR TODAS AS ÁREAS */
+
+            if (
+                areaSelecionada === "todos"
+            ) {
+
+                linha.style.display = "";
+
+                return;
+
+            }
+
+
+            /* MOSTRAR ÁREA SELECIONADA */
+
+            if (
+                area === areaSelecionada
+            ) {
+
+                linha.style.display = "";
+
+            } else {
+
+                linha.style.display = "none";
+
+            }
+
+        });
+
+}
+
+
+/* ALTERAR FILTRO */
+
+if (filtroArea) {
+
+    filtroArea.addEventListener(
+        "change",
+        () => {
+
+            aplicarFiltroArea();
+
+        }
+    );
+
+}
 
 
 /* TOAST */
@@ -296,11 +693,14 @@ function mostrarToast() {
         );
 
         return;
+
     }
 
 
     toast.classList.add("ativo");
 
+
+    /* FECHAR AUTOMATICAMENTE */
 
     setTimeout(() => {
 
@@ -320,7 +720,9 @@ function fecharToast() {
 
 
     if (!toast) {
+
         return;
+
     }
 
 
@@ -329,7 +731,7 @@ function fecharToast() {
 }
 
 
-/* SISTEMA DE NOTIFICACOES */
+/* SISTEMA DE NOTIFICAÇÕES */
 
 const botaoNotificacao =
     document.getElementById("botaoNotificacao");
@@ -347,21 +749,28 @@ const marcarLidas =
     document.getElementById("marcarLidas");
 
 
+/* LISTA DE NOTIFICAÇÕES */
+
 let notificacoes = [];
 
 
-/* ABRIR E FECHAR NOTIFICACOES */
+/* ABRIR E FECHAR NOTIFICAÇÕES */
 
 botaoNotificacao.addEventListener("click", () => {
 
-    painelNotificacoes.classList.toggle("ativo");
+    painelNotificacoes.classList.toggle(
+        "ativo"
+    );
 
 });
 
 
-/* CRIAR NOTIFICACAO */
+/* CRIAR NOTIFICAÇÃO */
 
-function criarNotificacao(titulo, mensagem) {
+function criarNotificacao(
+    titulo,
+    mensagem
+) {
 
     notificacoes.unshift({
 
@@ -377,30 +786,40 @@ function criarNotificacao(titulo, mensagem) {
 }
 
 
-/* ATUALIZAR NOTIFICACOES */
+/* ATUALIZAR NOTIFICAÇÕES */
 
 function atualizarNotificacoes() {
 
     listaNotificacoes.innerHTML = "";
 
 
+    /* VERIFICAR SE EXISTEM NOTIFICAÇÕES */
+
     if (notificacoes.length === 0) {
 
         listaNotificacoes.innerHTML = `
+
             <div class="semnotificacoes">
+
                 Nenhuma notificação nova.
+
             </div>
+
         `;
 
 
-        contadorNotificacoes.textContent = "0";
+        contadorNotificacoes.textContent =
+            "0";
 
-        contadorNotificacoes.style.display = "none";
-
+        contadorNotificacoes.style.display =
+            "none";
 
         return;
+
     }
 
+
+    /* ATUALIZAR CONTADOR */
 
     contadorNotificacoes.textContent =
         notificacoes.length;
@@ -408,6 +827,8 @@ function atualizarNotificacoes() {
     contadorNotificacoes.style.display =
         "flex";
 
+
+    /* MOSTRAR NOTIFICAÇÕES */
 
     notificacoes.forEach((notificacao) => {
 
@@ -421,8 +842,11 @@ function atualizarNotificacoes() {
 
 
         elemento.innerHTML = `
+
             <div class="notificacao-icone">
+
                 ✓
+
             </div>
 
             <div class="notificacaoconteudo">
@@ -436,6 +860,7 @@ function atualizarNotificacoes() {
                 </span>
 
             </div>
+
         `;
 
 
@@ -448,7 +873,7 @@ function atualizarNotificacoes() {
 }
 
 
-/* MARCAR COMO LIDAS */
+/* MARCAR NOTIFICAÇÕES COMO LIDAS */
 
 marcarLidas.addEventListener("click", () => {
 
@@ -457,3 +882,10 @@ marcarLidas.addEventListener("click", () => {
     atualizarNotificacoes();
 
 });
+
+
+/* INICIALIZAR FILTRO */
+
+atualizarFiltroAreas();
+
+aplicarFiltroArea();
