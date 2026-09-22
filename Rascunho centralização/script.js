@@ -59,7 +59,7 @@ botaoAdicionar.addEventListener("click", () => {
     const data = new Date();
 
     const dataFormatada =
-        data.toLocaleDateString("pt BR");
+        data.toLocaleDateString("pt-BR");
 
     dataCriacao.value =
         dataFormatada;
