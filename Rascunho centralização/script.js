@@ -178,31 +178,44 @@ formulario.addEventListener("submit", (evento) => {
     );
 
 
-    /* ATUALIZAR FILTRO */
-
-    atualizarFiltroAreas();
-
-    aplicarFiltroArea();
-
-
-    /* LIMPAR FORMULÁRIO */
-
-    formulario.reset();
+    /* =========================
+       FECHAR MODAL
+    ========================= */
 
     modal.classList.remove("ativo");
 
 
-    /* MOSTRAR MENSAGEM DE SUCESSO */
+    /* =========================
+       LIMPAR FORMULÁRIO
+    ========================= */
+
+    formulario.reset();
+
+
+    /* =========================
+       MOSTRAR MENSAGEM DE SUCESSO
+    ========================= */
 
     mostrarToast();
 
 
-    /* CRIAR NOTIFICAÇÃO */
+    /* =========================
+       CRIAR NOTIFICAÇÃO
+    ========================= */
 
     criarNotificacao(
         "Novo cadastro",
         `O acesso de ${servico} foi cadastrado com sucesso.`
     );
+
+
+    /* =========================
+       ATUALIZAR FILTRO
+    ========================= */
+
+    atualizarFiltroAreas();
+
+    aplicarFiltroArea();
 
 });
 
@@ -519,17 +532,17 @@ function atualizarFiltroAreas() {
 
     /* ORDENAR ÁREAS */
 
-    areas.sort((a, b) => {
+    areas.sort((a, b) => {  
 
-        return a.localeCompare(
-            b,
-            "pt BR",
-            {
-                sensitivity: "base"
-            }
-        );
+    return a.localeCompare(
+        b,
+        "pt-BR",
+        {
+            sensitivity: "base"
+        }
+    );
 
-    });
+});
 
 
     /* LIMPAR FILTRO */
