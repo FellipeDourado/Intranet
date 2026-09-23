@@ -1,0 +1,255 @@
+/* TEMA DARK */
+
+:root {
+  --cor-fundo: #373435;
+  --cor-texto: #fff;
+  --cor-texto-secundario: #d0d0d0;
+
+  --cor-superficie: #403e3f;
+  --cor-borda: #5a5758;
+
+  --cor-campo: #fff;
+  --cor-campo-texto: #222;
+
+  --cor-footer: #2d2b2c;
+  --cor-footer-texto: #aaa;
+
+  --cor-vermelho: #ed3237;
+}
+
+
+/* TEMA LIGHT */
+
+body.tema-light {
+  --cor-fundo: #e9eaec;
+  --cor-texto: #292727;
+  --cor-texto-secundario: #5f5f5f;
+
+  --cor-superficie: #f4f4f4;
+  --cor-borda: #c8c8c8;
+
+  --cor-campo: #fff;
+  --cor-campo-texto: #222;
+
+  --cor-footer: #dedfe1;
+  --cor-footer-texto: #666;
+
+  --cor-vermelho: #ed3237;
+}
+
+
+/* PÁGINA */
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* TEXTOS */
+
+h1,
+h2,
+h3,
+p,
+label {
+  color: var(--cor-texto);
+}
+
+
+/* TEXTOS SECUNDÁRIOS */
+
+.cadastro-section > p,
+.senha-section > p {
+  color: var(--cor-texto-secundario);
+}
+
+
+/* FORMULÁRIOS */
+
+.login,
+.form-cadastro,
+.form-senha {
+  background: var(--cor-superficie);
+
+  border-color: var(--cor-borda);
+}
+
+
+/* TÍTULOS DOS GRUPOS */
+
+.grupo h2 {
+  color: var(--cor-texto);
+
+  border-color: var(--cor-borda);
+}
+
+
+/* CAMPOS */
+
+.login input,
+.form-cadastro input,
+.form-senha input {
+  background: var(--cor-campo);
+
+  color: var(--cor-campo-texto);
+
+  border-color: var(--cor-borda);
+}
+
+
+/* PLACEHOLDER */
+
+.login input::placeholder,
+.form-cadastro input::placeholder,
+.form-senha input::placeholder {
+  color: #777;
+}
+
+
+/* CAMPOS EM FOCO */
+
+.login input:focus,
+.form-cadastro input:focus,
+.form-senha input:focus {
+  border-color: var(--cor-vermelho);
+}
+
+
+/* BOTÕES */
+
+.login button,
+.form-cadastro button,
+.form-senha button {
+  background: var(--cor-vermelho);
+
+  color: #fff;
+}
+
+
+/* HOVER DOS BOTÕES */
+
+.login button:hover,
+.form-cadastro button:hover,
+.form-senha button:hover {
+  background: #c9272c;
+}
+
+/* BOTÃO VOLTAR */
+
+.form-cadastro .voltar-login {
+  border: 1px solid var(--cor-borda);
+
+  background-color: transparent;
+
+  color: var(--cor-texto);
+
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DO LINK */
+
+.voltar-login:hover {
+  border-color: var(--cor-vermelho);
+  background-color: var(--cor-vermelho);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* LINKS */
+
+.esqueci-senha,
+.voltar-login {
+  color: var(--cor-texto);
+}
+
+
+/* HOVER DOS LINKS */
+
+.esqueci-senha:hover,
+.voltar-login:hover {
+  color: var(--cor-vermelho);
+}
+
+
+/* FOOTER */
+
+.direitos {
+  background: var(--cor-footer);
+
+  color: var(--cor-footer-texto);
+
+  border-color: var(--cor-borda);
+}
+
+
+.direitos p {
+  color: var(--cor-footer-texto);
+}
+
+
+/* BOTÃO DE TEMA */
+
+/* BOTÃO DE TEMA */
+
+.botao-tema {
+  position: fixed;
+
+  top: 15px;
+  right: 15px;
+
+  width: 40px !important;
+  height: 40px !important;
+
+  min-width: 40px !important;
+  max-width: 40px !important;
+
+  min-height: 40px !important;
+  max-height: 40px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 22px 22px !important;
+
+  overflow: hidden;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  z-index: 9999;
+}
+
+
+/* HOVER */
+
+.botao-tema:hover {
+  border-color: var(--cor-vermelho);
+}
+
+/* HOVER DO BOTÃO VOLTAR */
+
+.form-cadastro .voltar-login:hover {
+  background-color: #ed3237 !important;
+  border-color: #ed3237 !important;
+  color: #fff !important;
+
+  cursor: pointer;
+}
