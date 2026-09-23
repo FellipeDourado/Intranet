@@ -1,0 +1,985 @@
+/* CONFIGURAÇÕES GERAIS */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* HEADER */
+
+header {
+  position: relative;
+  min-height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid var(--cor-borda);
+  background: var(--cor-fundo);
+}
+
+
+/* MENU */
+
+.menu-container {
+  position: relative;
+}
+
+
+/* BOTÃO HAMBÚRGUER */
+
+.menu-hamburguer {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--cor-texto);
+  font-size: 21px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DO HAMBÚRGUER */
+
+.menu-hamburguer:hover {
+  border-color: var(--cor-vermelho);
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* MENU DE NAVEGAÇÃO */
+
+nav {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  width: 210px;
+  padding: 6px 0;
+  border: 1px solid var(--cor-borda);
+  border-radius: 7px;
+  background: var(--cor-superficie);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* MENU ATIVO */
+
+nav.ativo {
+  display: block;
+}
+
+
+/* LISTA DO MENU */
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* LINKS DO MENU */
+
+nav a {
+  display: block;
+  padding: 11px 15px;
+  color: var(--cor-texto);
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DOS LINKS */
+
+nav a:hover {
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* PESQUISA */
+
+#pesquisa {
+  width: 300px;
+  margin-left: auto;
+  padding: 10px 13px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  outline: none;
+  background: var(--cor-campo);
+  color: var(--cor-campo-texto);
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+
+/* PLACEHOLDER DA PESQUISA */
+
+#pesquisa::placeholder {
+  color: var(--cor-texto-secundario);
+}
+
+
+/* PESQUISA EM FOCO */
+
+#pesquisa:focus {
+  border-color: var(--cor-vermelho);
+  box-shadow: 0 0 0 2px rgba(237, 50, 55, 0.1);
+}
+
+
+/* BOTÃO DE TEMA */
+
+header .botao-tema {
+  position: static;
+  top: auto;
+  right: auto;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  background: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: auto;
+  transition: 0.2s ease;
+}
+
+
+/* ÍCONE DO TEMA */
+
+header .botao-tema img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* HOVER DO BOTÃO DE TEMA */
+
+header .botao-tema:hover {
+  border-color: var(--cor-vermelho);
+}
+
+
+/* ÁREA DO USUÁRIO */
+
+.acoes-usuario {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+
+/* IMAGEM DO USUÁRIO */
+
+.acoes-usuario > img {
+  width: 38px;
+  height: 38px;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* NOTIFICAÇÕES */
+
+.notificacao-container {
+  position: relative;
+}
+
+
+/* BOTÃO DE NOTIFICAÇÃO */
+
+.botaonotificacao {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* ÍCONE DE NOTIFICAÇÃO */
+
+.botaonotificacao img {
+  width: 21px;
+  height: 21px;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* HOVER DA NOTIFICAÇÃO */
+
+.botaonotificacao:hover {
+  border-color: var(--cor-vermelho);
+}
+
+
+/* CONTADOR DE NOTIFICAÇÕES */
+
+.contadornotificacoes {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--cor-vermelho);
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+
+/* PAINEL DE NOTIFICAÇÕES */
+
+.painelnotificacoes {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  width: 320px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 7px;
+  background: var(--cor-superficie);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+
+/* PAINEL DE NOTIFICAÇÕES ATIVO */
+
+.painelnotificacoes.ativo {
+  display: block;
+}
+
+
+/* CABEÇALHO DAS NOTIFICAÇÕES */
+
+.notificacoesheader {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+
+/* TÍTULO DAS NOTIFICAÇÕES */
+
+.notificacoesheader strong {
+  color: var(--cor-texto);
+  font-size: 14px;
+}
+
+
+/* BOTÃO MARCAR COMO LIDAS */
+
+.notificacoesheader button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+/* HOVER MARCAR COMO LIDAS */
+
+.notificacoesheader button:hover {
+  color: var(--cor-vermelho);
+}
+
+
+/* LISTA DE NOTIFICAÇÕES */
+
+.listanotificacoes {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+
+/* NOTIFICAÇÃO */
+
+.notificacao {
+  padding: 12px 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+
+/* ÚLTIMA NOTIFICAÇÃO */
+
+.notificacao:last-child {
+  border-bottom: none;
+}
+
+
+/* ÍCONE DA NOTIFICAÇÃO */
+
+.notificacao-icone {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--cor-vermelho);
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+/* CONTEÚDO DA NOTIFICAÇÃO */
+
+.notificacaoconteudo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+/* TÍTULO DA NOTIFICAÇÃO */
+
+.notificacaoconteudo strong {
+  color: var(--cor-texto);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* MENSAGEM DA NOTIFICAÇÃO */
+
+.notificacaoconteudo span {
+  color: var(--cor-texto-secundario);
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+
+/* NOTIFICAÇÃO VAZIA */
+
+.semnotificacoes {
+  padding: 20px;
+  color: var(--cor-texto-secundario);
+  font-size: 13px;
+  text-align: center;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+  flex: 1;
+  width: 100%;
+  padding: 35px;
+  box-sizing: border-box;
+}
+
+
+/* CABEÇALHO DA SEÇÃO */
+
+.section-header {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+
+/* TÍTULO DA SEÇÃO */
+
+.section-header h2 {
+  margin: 0 0 6px;
+  color: var(--cor-texto);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* TEXTO DA SEÇÃO */
+
+.section-header p {
+  margin: 0;
+  color: var(--cor-texto-secundario);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* AÇÕES DA TABELA */
+
+.acoes-tabela {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* ÁREA DO FILTRO */
+
+.filtro-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* LABEL DO FILTRO */
+
+.filtro-area label {
+  color: var(--cor-texto);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* SELECT DO FILTRO */
+
+.filtro-area select {
+  min-width: 150px;
+  padding: 9px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  outline: none;
+  background: var(--cor-campo);
+  color: var(--cor-campo-texto);
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* SELECT EM FOCO */
+
+.filtro-area select:focus {
+  border-color: var(--cor-vermelho);
+  box-shadow: 0 0 0 2px rgba(237, 50, 55, 0.1);
+}
+
+
+/* BOTÃO ADICIONAR ACESSO */
+
+.adicionar-acesso {
+  padding: 10px 15px;
+  border: 1px solid var(--cor-vermelho);
+  border-radius: 6px;
+  background: var(--cor-vermelho);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DO BOTÃO ADICIONAR */
+
+.adicionar-acesso:hover {
+  background: #c9272c;
+  border-color: #c9272c;
+}
+
+
+/* TABELA */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  border-radius: 7px;
+  background: var(--cor-superficie);
+}
+
+
+/* CABEÇALHO DA TABELA */
+
+thead {
+  background: var(--cor-footer);
+}
+
+
+/* CÉLULAS */
+
+th,
+td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--cor-borda);
+  text-align: left;
+  font-size: 13px;
+}
+
+
+/* CABEÇALHO */
+
+th {
+  color: var(--cor-texto);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* CONTEÚDO DA TABELA */
+
+td {
+  color: var(--cor-texto);
+  font-size: 13px;
+}
+
+
+/* HOVER DAS LINHAS */
+
+tbody tr {
+  transition: 0.15s ease;
+}
+
+
+tbody tr:hover {
+  background: rgba(237, 50, 55, 0.06);
+}
+
+
+/* ÚLTIMA LINHA */
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* BOTÃO EDITAR */
+
+.btn-editar {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* IMAGEM DO LÁPIS */
+
+.btn-editar img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* HOVER DO BOTÃO EDITAR */
+
+.btn-editar:hover {
+  border-color: var(--cor-vermelho);
+  background: var(--cor-vermelho);
+}
+
+
+/* HOVER DA IMAGEM DO LÁPIS */
+
+.btn-editar:hover img {
+  filter: brightness(0) invert(1);
+}
+
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* MODAL ATIVO */
+
+.modal.ativo {
+  display: flex;
+}
+
+
+/* CONTEÚDO DO MODAL */
+
+.modal-conteudo {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  padding: 25px;
+  box-sizing: border-box;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: var(--cor-superficie);
+  overflow-y: auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* CABEÇALHO DO MODAL */
+
+.modal-header {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+/* TÍTULO DO MODAL */
+
+.modal-header h2 {
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* BOTÃO FECHAR MODAL */
+
+.fechar-modal {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--cor-texto);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* HOVER FECHAR MODAL */
+
+.fechar-modal:hover {
+  border-color: var(--cor-vermelho);
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* CAMPOS DO FORMULÁRIO */
+
+.campo {
+  margin-bottom: 16px;
+}
+
+
+/* LABEL DOS CAMPOS */
+
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cor-texto);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* INPUTS E SELECTS */
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  outline: none;
+  background: var(--cor-campo);
+  color: var(--cor-campo-texto);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+
+/* PLACEHOLDER */
+
+.campo input::placeholder {
+  color: #777;
+}
+
+
+/* CAMPOS EM FOCO */
+
+.campo input:focus,
+.campo select:focus {
+  border-color: var(--cor-vermelho);
+  box-shadow: 0 0 0 2px rgba(237, 50, 55, 0.1);
+}
+
+
+/* CAMPO SOMENTE LEITURA */
+
+.campo input[readonly] {
+  background: var(--cor-footer);
+  color: var(--cor-texto);
+  border-color: var(--cor-borda);
+  cursor: default;
+}
+
+
+/* AÇÕES DO MODAL */
+
+.modal-acoes {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+/* BOTÕES DO MODAL */
+
+.modal-acoes button {
+  padding: 9px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* BOTÃO CANCELAR */
+
+.btn-cancelar {
+  border: 1px solid var(--cor-borda);
+  background: transparent;
+  color: var(--cor-texto);
+}
+
+
+/* HOVER CANCELAR */
+
+.btn-cancelar:hover {
+  border-color: var(--cor-vermelho);
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* BOTÃO CADASTRAR */
+
+.btn-cadastrar {
+  border: 1px solid var(--cor-vermelho);
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* HOVER CADASTRAR */
+
+.btn-cadastrar:hover {
+  border-color: #c9272c;
+  background: #c9272c;
+}
+
+
+/* BOTÃO DELETAR */
+
+.btn-deletar {
+  margin-right: auto;
+  border: 1px solid #b52b2f;
+  background: transparent;
+  color: #b52b2f;
+}
+
+
+/* HOVER DELETAR */
+
+.btn-deletar:hover {
+  border-color: #b52b2f;
+  background: #b52b2f;
+  color: #fff;
+}
+
+
+/* TOAST */
+
+.toast {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 3000;
+  width: 340px;
+  min-height: 70px;
+  padding: 14px 16px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: var(--cor-superficie);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* TOAST ATIVO */
+
+.toast.ativo {
+  display: flex;
+}
+
+
+/* ÍCONE DO TOAST */
+
+.toast-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #2e9b5f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+/* CONTEÚDO DO TOAST */
+
+.toast-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+
+/* TÍTULO DO TOAST */
+
+.toast-content strong {
+  color: var(--cor-texto);
+  font-size: 13px;
+}
+
+
+/* TEXTO DO TOAST */
+
+.toast-content span {
+  color: var(--cor-texto-secundario);
+  font-size: 12px;
+}
+
+
+/* BOTÃO FECHAR TOAST */
+
+.toast-close {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* HOVER FECHAR TOAST */
+
+.toast-close:hover {
+  color: var(--cor-vermelho);
+}
+
+
+/* FOOTER */
+
+footer {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--cor-borda);
+  background: var(--cor-footer);
+  color: var(--cor-footer-texto);
+  font-size: 11px;
+}
+
+
+/* PARÁGRAFO DO FOOTER */
+
+footer p {
+  margin: 0;
+  text-align: center;
+}
