@@ -1,0 +1,559 @@
+/* CONFIGURAÇÕES GERAIS */
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* HEADER */
+
+header {
+  position: relative;
+
+  min-height: 70px;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+
+  border-bottom: 1px solid var(--cor-borda);
+  background: var(--cor-fundo);
+}
+
+
+/* LOGO */
+
+.logo {
+  width: 140px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* MENU */
+
+.menu-container {
+  position: relative;
+}
+
+
+/* BOTÃO HAMBÚRGUER */
+
+.menu-hamburguer {
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--cor-texto);
+
+  font-size: 21px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DO HAMBÚRGUER */
+
+.menu-hamburguer:hover {
+  border-color: var(--cor-vermelho);
+
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* MENU DE NAVEGAÇÃO */
+
+nav {
+  position: absolute;
+
+  top: 48px;
+  left: 0;
+
+  z-index: 1000;
+
+  display: none;
+
+  width: 210px;
+
+  padding: 6px 0;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 7px;
+
+  background: var(--cor-superficie);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* MENU ATIVO */
+
+nav.ativo {
+  display: block;
+}
+
+
+/* LISTA DO MENU */
+
+nav ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* LINKS DO MENU */
+
+nav a {
+  display: block;
+
+  padding: 11px 15px;
+
+  color: var(--cor-texto);
+
+  font-size: 14px;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DOS LINKS */
+
+nav a:hover {
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+
+/* PESQUISA */
+
+#pesquisa {
+  width: 300px;
+
+  margin-left: auto;
+  padding: 10px 13px;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+
+  outline: none;
+
+  background: var(--cor-campo);
+  color: var(--cor-campo-texto);
+
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+
+/* PLACEHOLDER DA PESQUISA */
+
+#pesquisa::placeholder {
+  color: var(--cor-texto-secundario);
+}
+
+
+/* PESQUISA EM FOCO */
+
+#pesquisa:focus {
+  border-color: var(--cor-vermelho);
+
+  box-shadow: 0 0 0 2px rgba(237, 50, 55, 0.1);
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+  flex: 1;
+
+  width: 100%;
+  min-height: 0;
+
+  padding: 35px;
+
+  box-sizing: border-box;
+}
+
+
+/* SEÇÃO DE BOAS-VINDAS */
+
+.bem-vindo {
+  margin-bottom: 35px;
+}
+
+
+/* TÍTULO DE BOAS-VINDAS */
+
+.bem-vindo h2 {
+  margin: 0 0 8px;
+
+  color: var(--cor-texto);
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+
+/* TEXTO DE BOAS-VINDAS */
+
+.bem-vindo p {
+  margin: 0;
+
+  color: var(--cor-texto-secundario);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* ÁREA DE RECURSOS */
+
+.recursos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 18px;
+}
+
+
+/* TÍTULO CONTROLE DE USUÁRIOS */
+
+.recursos h2 {
+  margin: 0 0 6px;
+
+  color: var(--cor-texto);
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+
+/* TEXTO CONTROLE DE USUÁRIOS */
+
+.recursos p {
+  margin: 0;
+
+  color: var(--cor-texto-secundario);
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* ÁREA DE AÇÕES */
+
+.acoes-tabela {
+  display: flex;
+  align-items: center;
+}
+
+
+/* FILTRO */
+
+.filtro-area {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* LABEL DO FILTRO */
+
+.filtro-area label {
+  color: var(--cor-texto);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* SELECT */
+
+.filtro-area select {
+  min-width: 150px;
+
+  padding: 9px 12px;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+
+  outline: none;
+
+  background: var(--cor-campo);
+  color: var(--cor-campo-texto);
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+/* SELECT EM FOCO */
+
+.filtro-area select:focus {
+  border-color: var(--cor-vermelho);
+
+  box-shadow: 0 0 0 2px rgba(237, 50, 55, 0.1);
+}
+
+
+/* TABELA */
+
+table {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 7px;
+
+  background: var(--cor-superficie);
+}
+
+
+/* CABEÇALHO DA TABELA */
+
+thead {
+  background: var(--cor-footer);
+}
+
+
+/* CÉLULAS */
+
+th,
+td {
+  padding: 14px 15px;
+
+  border-bottom: 1px solid var(--cor-borda);
+
+  text-align: left;
+
+  font-size: 14px;
+}
+
+
+/* CABEÇALHO */
+
+th {
+  color: var(--cor-texto);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* CONTEÚDO DA TABELA */
+
+td {
+  color: var(--cor-texto);
+
+  font-size: 13px;
+}
+
+
+/* HOVER DAS LINHAS */
+
+tbody tr {
+  transition: 0.15s ease;
+}
+
+
+tbody tr:hover {
+  background: rgba(237, 50, 55, 0.06);
+}
+
+
+/* ÚLTIMA LINHA */
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* BOTÃO CONFIGURAÇÃO */
+
+td button {
+  padding: 7px 11px;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--cor-texto);
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+/* HOVER DO BOTÃO CONFIGURAÇÃO */
+
+td button:hover {
+  border-color: var(--cor-vermelho);
+
+  background: var(--cor-vermelho);
+  color: #fff;
+}
+
+/* BOTÃO DE TEMA */
+
+.botao-tema {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+/* ÍCONE DO TEMA */
+
+.botao-tema img {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+}
+
+
+/* HOVER */
+
+.botao-tema:hover {
+  border-color: var(--cor-vermelho);
+}
+
+/* FOOTER */
+
+footer {
+  min-height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid var(--cor-borda);
+
+  background: var(--cor-footer);
+  color: var(--cor-footer-texto);
+
+  font-size: 11px;
+}
+
+
+/* PARÁGRAFO DO FOOTER */
+
+footer p {
+  margin: 0;
+
+  text-align: center;
+}
+
+/* BOTÃO DE TEMA NO HEADER */
+
+header .botao-tema {
+  position: static;
+
+  top: auto;
+  right: auto;
+
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+
+  background: transparent;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  z-index: auto;
+}
+
+
+/* ÍCONE DO TEMA */
+
+header .botao-tema img {
+  width: 22px;
+  height: 22px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* HOVER */
+
+header .botao-tema:hover {
+  border-color: var(--cor-vermelho);
+}

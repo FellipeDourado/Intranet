@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/tema.css">
+
+  <title>Krona Intranet</title>
+</head>
+
+<body>
+
+  <button class="botao-tema" id="botao-tema" type="button">
+  <img
+    src="assets/lua.png"
+    alt="Alterar tema"
+    id="icone-tema"
+  >
+</button>
+  <main>
+    <section class="vindo">
+      <img
+  src="assets/Logotipo Preto.png"
+  alt="Logo da Krona"
+  class="logo"
+  id="logo-krona">
+      <h1>Bem-vindo à Intranet Krona</h1>
+      <p>Tenha acesso rápido e seguro às informações, recursos e ferramentas da Krona em um só lugar. Aqui você encontrará os principais serviços e sistemas utilizados no dia a dia.</p>
+    </section>
+
+    <section class="login-section">
+      <h3>Faça login para acessar a intranet</h3>
+
+      <img src="assets/seguranca.png" alt="Ícone de segurança" class="seguranca">
+
+      <form class="login" action="" method="POST">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="opcoes">
+          <div class="lembrar">
+            <input type="checkbox" id="lembrar" name="lembrar">
+            <label for="lembrar">Lembrar-me</label>
+          </div>
+
+          <a
+            href="html/esqueci-senha.html"
+            class="esqueci-senha">Esqueci minha senha
+          </a>
+        </div>
+
+        <button type="submit" class="botao-entrar">
+          Entrar
+        </button>
+        <a href="html/cadastro.html" class="cadastro">Cadastre-se aqui</a>
+      </form>
+    </section>
+  </main>
+
+  <footer class="direitos">
+    <p>&copy; <span id="ano-atual"></span> Krona Intranet. Todos os direitos reservados.</p>
+  </footer>
+   <script src="js/script.js"></script>
+   <script src="JS/tema.js"></script>
+</body>
+</html>

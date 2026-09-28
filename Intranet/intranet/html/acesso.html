@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Controle de Acessos</title>
+
+  <link rel="stylesheet" href="../CSS/reset.css">
+  <link rel="stylesheet" href="../CSS/tema.css">
+  <link rel="stylesheet" href="../CSS/acesso.css">
+</head>
+
+<body>
+
+  <header>
+
+    <div class="menu-container">
+
+      <button
+        class="menu-hamburguer"
+        id="menuHamburguer"
+        type="button"
+      >
+        ☰
+      </button>
+
+      <nav id="menu">
+
+        <ul>
+
+          <li>
+            <a href="../html/acesso.html">
+              Acessos
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              Administração
+            </a>
+          </li>
+
+          <li>
+            <a href="../html/portausuario.html">
+              Portal dos usuários
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              Servidores
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+    <img
+      src="../assets/Logotipo Preto.png"
+      alt="Logo da Krona"
+      class="logo"
+      id="logo-krona"
+    >
+
+    <input
+      type="search"
+      id="pesquisa"
+      placeholder="Pesquisar acessos."
+    >
+
+    <button
+      class="botao-tema"
+      id="botao-tema"
+      type="button"
+      aria-label="Alterar tema"
+    >
+
+      <img
+        src="../assets/lua.png"
+        alt="Alterar tema"
+        id="icone-tema"
+      >
+
+    </button>
+
+    <div class="acoes-usuario">
+
+      <div class="notificacao-container">
+
+        <button
+          id="botaoNotificacao"
+          class="botaonotificacao"
+          type="button"
+        >
+
+          <img
+            src="../assets/sino.png"
+            alt="Notificações"
+          >
+
+          <span
+            id="contadorNotificacoes"
+            class="contadornotificacoes"
+          >
+            0
+          </span>
+
+        </button>
+
+        <div
+          id="painelNotificacoes"
+          class="painelnotificacoes"
+        >
+
+          <div class="notificacoesheader">
+
+            <strong>
+              Notificações
+            </strong>
+
+            <button
+              id="marcarLidas"
+              type="button"
+            >
+              Marcar como lidas
+            </button>
+
+          </div>
+
+
+          <div
+            id="listaNotificacoes"
+            class="listanotificacoes"
+          >
+
+            <div class="semnotificacoes">
+              Nenhuma notificação nova.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- USUÁRIO -->
+
+<div class="usuario-container">
+
+  <button
+    id="botaoUsuario"
+    class="botao-usuario"
+    type="button"
+    aria-label="Abrir perfil"
+  >
+
+    <img
+      src="../assets/do-utilizador (2).png"
+      alt="Usuário"
+    >
+
+  </button>
+
+
+  <!-- PAINEL DO USUÁRIO -->
+
+  <div
+    id="painelUsuario"
+    class="painel-usuario"
+  >
+
+    <!-- CABEÇALHO DO PERFIL -->
+
+    <div class="usuario-header">
+
+      <img
+        src="../assets/do-utilizador (2).png"
+        alt="Usuário"
+      >
+
+      <div>
+
+        <strong id="usuarioNome"></strong>
+
+        <span id="usuarioCargo"></span>
+
+      </div>
+
+    </div>
+
+
+    <!-- DADOS DO USUÁRIO -->
+
+    <div class="usuario-dados">
+
+      <div class="usuario-dado">
+
+        <span>
+          Nome
+        </span>
+
+        <strong id="usuarioNomeCompleto"></strong>
+
+      </div>
+
+
+      <div class="usuario-dado">
+
+        <span>
+          E-mail
+        </span>
+
+        <strong id="usuarioEmail"></strong>
+
+      </div>
+
+
+      <div class="usuario-dado">
+
+        <span>
+          Setor
+        </span>
+
+        <strong id="usuarioSetor"></strong>
+
+      </div>
+
+
+      <div class="usuario-dado">
+
+        <span>
+          Cargo
+        </span>
+
+        <strong id="usuarioCargoCompleto"></strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- SAIR -->
+
+    <button
+      id="botaoSair"
+      class="botao-sair"
+      type="button"
+    >
+      Sair da conta
+    </button>
+
+  </div>    
+
+</div>
+
+  </header>
+
+  <main>
+
+    <section class="section-header">
+
+      <div>
+
+        <h2>
+          Acessos
+        </h2>
+
+        <p>
+          Gerencie os acessos e credenciais dos sistemas utilizados pela empresa.
+        </p>
+
+      </div>
+
+       <div class="acoes-tabela">
+
+          <div class="filtro-area">
+
+            <label for="filtroArea">
+              Setor
+            </label>
+
+            <select id="filtroArea">
+
+              <option value="todos">
+                Todas
+              </option>
+
+          </select>
+
+        </div>
+
+        <button
+          id="adicionarAcesso"
+          class="adicionar-acesso"
+          type="button"
+        >
+          Adicionar acesso
+        </button>
+
+      </div>
+
+    </section>
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>
+            Serviços
+          </th>
+
+          <th>
+            Email
+          </th>
+
+          <th>
+            Senha
+          </th>
+
+          <th>
+            Status
+          </th>
+
+          <th>
+            Centralizado
+          </th>
+
+          <th>
+            Setor
+          </th>
+
+          <th>
+            Data de Criação
+          </th>
+
+          <th>
+            Config
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody id="tabelaAcessos">
+
+      </tbody>
+
+    </table>
+
+  </main>
+
+  <div
+    id="modalCadastro"
+    class="modal"
+  >
+
+    <div class="modal-conteudo">
+
+      <div class="modal-header">
+
+        <h2>
+          Adicionar acesso
+        </h2>
+
+        <button
+          id="fecharModal"
+          class="fechar-modal"
+          type="button"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="formCadastro">
+
+        <div class="campo">
+
+          <label for="servico">
+            Serviço
+          </label>
+
+          <input
+            type="text"
+            id="servico"
+            placeholder="Ex.: PoweBi"
+            required
+          >
+
+        </div>
+
+        <div class="campo">
+
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Digite o email"
+            required
+          >
+
+        </div>
+
+        <div class="campo">
+
+          <label for="senha">
+            Senha
+          </label>
+
+          <input
+            type="password"
+            id="senha"
+            placeholder="Digite a senha"
+            required
+          >
+
+        </div>
+
+        <div class="campo">
+
+          <label for="status">
+            Status
+          </label>
+
+          <select id="status" required>
+
+            <option value="Ativo">
+              Ativo
+            </option>
+
+            <option value="Inativo">
+              Inativo
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="campo">
+
+          <label for="centralizado">
+            Centralizado
+          </label>
+
+          <select id="centralizado" required>
+
+            <option value="Sim">
+              Sim
+            </option>
+
+            <option value="Não">
+              Não
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="campo">
+            <label for="area">
+              Área
+            </label>
+
+            <input
+              type="text"
+              id="area"
+              placeholder="Digite a área"
+              required
+            >
+            </div>
+       <div class="campo">
+
+            <label for="dataCriacao">
+              Data de Criação
+            </label>
+
+            <input
+              type="text"
+              id="dataCriacao"
+              readonly
+            >
+
+          </div>
+
+        <div class="modal-acoes">
+
+          <button
+            id="botaoCancelar"
+            class="btn-cancelar"
+            type="button"
+          >
+            Cancelar
+          </button>
+
+          <button
+            class="btn-cadastrar"
+            type="submit"
+          >
+            Cadastrar
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div
+  class="modal"
+  id="modalEdicao"
+>
+
+  <div class="modal-conteudo">
+
+    <div class="modal-header">
+
+      <h2>
+        Editar Acesso
+      </h2>
+
+      <button
+        type="button"
+        class="fechar-modal"
+        id="fecharModalEdicao"
+      >
+        &times;
+      </button>
+
+    </div>
+
+
+    <form id="formEdicao">
+
+      <div class="campo">
+
+        <label for="editarServico">
+          Serviço
+        </label>
+
+        <input
+          type="text"
+          id="editarServico"
+          required
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarEmail">
+          E-mail
+        </label>
+
+        <input
+          type="email"
+          id="editarEmail"
+          required
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarSenha">
+          Senha
+        </label>
+
+        <input
+          type="password"
+          id="editarSenha"
+          required
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarStatus">
+          Status
+        </label>
+
+        <select
+          id="editarStatus"
+          required
+        >
+
+          <option value="Ativo">
+            Ativo
+          </option>
+
+          <option value="Inativo">
+            Inativo
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarCentralizado">
+          Centralizado
+        </label>
+
+        <select
+          id="editarCentralizado"
+          required
+        >
+
+          <option value="Sim">
+            Sim
+          </option>
+
+          <option value="Não">
+            Não
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarArea">
+          Área
+        </label>
+
+        <input
+          type="text"
+          id="editarArea"
+          required
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="editarDataCriacao">
+          Data de Criação
+        </label>
+
+        <input
+          type="text"
+          id="editarDataCriacao"
+          readonly
+        >
+
+      </div>
+
+
+      <div class="modal-acoes">
+
+        <button
+          type="button"
+          class="btn-deletar"
+          id="deletarAcesso"
+        >
+          Deletar
+        </button>
+
+        <button
+          type="button"
+          class="btn-cancelar"
+          id="cancelarEdicao"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="submit"
+          class="btn-cadastrar"
+        >
+          Salvar
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+  <div
+    id="toast"
+    class="toast"
+  >
+
+    <div class="toast-icon">
+      ✓
+    </div>
+
+    <div class="toast-content">
+
+      <strong>
+        Sucesso
+      </strong>
+
+      <span id="toastMensagem">
+        Acesso cadastrado com sucesso.
+      </span>
+
+    </div>
+
+    <button
+      id="fecharToast"
+      class="toast-close"
+      type="button"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <footer>
+
+    <p>
+      © <span id="ano-atual"></span> Krona. Todos os direitos reservados.
+    </p>
+
+  </footer>
+
+  <script src="../JS/acesso.js"></script>
+  <script src="../JS/tema.js"></script>
+
+</body>
+
+</html>
